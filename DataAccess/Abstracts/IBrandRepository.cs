@@ -1,6 +1,9 @@
-﻿namespace DataAccess.Abstracts;
+﻿using Core.DataAccess;
+using Entities.Concretes;
 
-public interface IBrandRepository
+namespace DataAccess.Abstracts;
+
+public interface IBrandRepository:IAsyncRepository<Brand,int>
 {
 
 }

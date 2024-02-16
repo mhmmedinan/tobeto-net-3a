@@ -40,7 +40,7 @@ public class EfRepositoryBase<TEntity, TEntityId, TContext> : IAsyncRepository<T
         IQueryable<TEntity> queryable = Query();
         if (include != null)
             queryable = include(queryable);
-        return await queryable.FirstOrDefaultAsync(predicate);
+        return await queryable.FirstOrDefaultAsync(predicate); 
     }
 
     public async Task<List<TEntity>> GetAll(Expression<Func<TEntity, bool>> predicate = null,

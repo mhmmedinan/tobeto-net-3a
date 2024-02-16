@@ -10,3 +10,11 @@ C:\Tobeto.Net3A\Tobeto-RentACarProject\Business\obj\Debug\net8.0\Business.dll
 C:\Tobeto.Net3A\Tobeto-RentACarProject\Business\obj\Debug\net8.0\refint\Business.dll
 C:\Tobeto.Net3A\Tobeto-RentACarProject\Business\obj\Debug\net8.0\Business.pdb
 C:\Tobeto.Net3A\Tobeto-RentACarProject\Business\obj\Debug\net8.0\ref\Business.dll
+C:\Tobeto.Net3A\Tobeto-RentACarProject\Business\obj\Debug\net8.0\Business.csproj.AssemblyReference.cache
+C:\Tobeto.Net3A\Tobeto-RentACarProject\Business\bin\Debug\net8.0\Core.dll
+C:\Tobeto.Net3A\Tobeto-RentACarProject\Business\bin\Debug\net8.0\DataAccess.dll
+C:\Tobeto.Net3A\Tobeto-RentACarProject\Business\bin\Debug\net8.0\Entities.dll
+C:\Tobeto.Net3A\Tobeto-RentACarProject\Business\bin\Debug\net8.0\DataAccess.pdb
+C:\Tobeto.Net3A\Tobeto-RentACarProject\Business\bin\Debug\net8.0\Entities.pdb
+C:\Tobeto.Net3A\Tobeto-RentACarProject\Business\bin\Debug\net8.0\Core.pdb
+C:\Tobeto.Net3A\Tobeto-RentACarProject\Business\obj\Debug\net8.0\Business.csproj.Up2Date
