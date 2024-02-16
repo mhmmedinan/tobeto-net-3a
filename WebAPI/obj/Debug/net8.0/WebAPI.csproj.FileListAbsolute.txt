@@ -136,3 +136,11 @@ C:\Tobeto.Net3A\Tobeto-RentACarProject\WebAPI\bin\Debug\net8.0\ru\Microsoft.Code
 C:\Tobeto.Net3A\Tobeto-RentACarProject\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Tobeto.Net3A\Tobeto-RentACarProject\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Tobeto.Net3A\Tobeto-RentACarProject\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Tobeto.Net3A\Tobeto-RentACarProject\WebAPI\bin\Debug\net8.0\Business.dll
+C:\Tobeto.Net3A\Tobeto-RentACarProject\WebAPI\bin\Debug\net8.0\Business.pdb
+C:\Tobeto.Net3A\Tobeto-RentACarProject\WebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Tobeto.Net3A\Tobeto-RentACarProject\WebAPI\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Tobeto.Net3A\Tobeto-RentACarProject\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Tobeto.Net3A\Tobeto-RentACarProject\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Tobeto.Net3A\Tobeto-RentACarProject\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Tobeto.Net3A\Tobeto-RentACarProject\WebAPI\obj\Debug\net8.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
