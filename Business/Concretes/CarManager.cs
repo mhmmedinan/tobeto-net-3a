@@ -2,6 +2,7 @@
 using Business.Abstracts;
 using Business.Requests.Cars;
 using Business.Responses.Cars;
+using Core.Utilities.Results;
 using DataAccess.Abstracts;
 using Entities.Concretes;
 using Microsoft.EntityFrameworkCore;
@@ -28,10 +29,10 @@ public class CarManager : ICarService
         return response;
     }
 
-    public async Task<List<GetAllCarResponse>> GetAllAsync()
+    public async Task<IDataResult<List<GetAllCarResponse>>> GetAllAsync()
     {
         List<Car> cars = await _carRepository.GetAll(include: x => x.Include(x => x.Model).Include(x=>x.Model.Brand));
         List<GetAllCarResponse> responses = _mapper.Map<List<GetAllCarResponse>>(cars);
-        return responses;
+        return new SuccessDataResult<List<GetAllCarResponse>>(responses,"Listed Successfully");
     }
 }
