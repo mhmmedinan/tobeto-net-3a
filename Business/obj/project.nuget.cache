@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "bDPWdJTNoSp6Lw2qwdFVhffaEb+Tbhhk1VT4piQblGURQsvb7qBz/yceG2DADyE/Rq2asrUZ/Z0WOhyG0FeBww==",
+  "dgSpecHash": "xNgWyYcyCcSVMZ2J2xn5i5+oCFjk0BXzocuelosPCw5+tZCp0IzwL5+0XPXzt2ijlchW5d3uR3xloStlRiZOpQ==",
   "success": true,
   "projectFilePath": "C:\\Tobeto.Net3A\\Tobeto-RentACarProject\\Business\\Business.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Muhammed\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Muhammed\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Muhammed\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\Muhammed\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",

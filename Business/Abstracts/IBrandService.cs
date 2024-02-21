@@ -7,5 +7,5 @@ namespace Business.Abstracts;
 public interface IBrandService
 {
     Task<CreateBrandResponse> AddAsync(CreateBrandRequest request);
-    Task<List<Brand>> GetAll();
+    Task<List<GetAllBrandResponse>> GetAllAsync();
 }

@@ -18,15 +18,15 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost]
-        public Task<CreateModelResponse> AddAsync(CreateModelRequest request)
+        public async Task<CreateModelResponse> AddAsync(CreateModelRequest request)
         {
-            return _modelService.AddAsync(request);
+            return await _modelService.AddAsync(request);
         }
 
         [HttpGet]
-        public Task<List<GetAllModelResponse>> GetAllAsync()
+        public async Task<List<GetAllModelResponse>> GetAllAsync()
         {
-            return _modelService.GetAllAsync();
+            return await _modelService.GetAllAsync();
         }
     }
 }

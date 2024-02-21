@@ -1,4 +1,5 @@
-﻿using Business.Abstracts;
+﻿using AutoMapper;
+using Business.Abstracts;
 using Business.Requests.Brands;
 using Business.Responses.Brands;
 using DataAccess.Abstracts;
@@ -9,26 +10,27 @@ namespace Business.Concretes;
 public class BrandManager : IBrandService
 {
     private readonly IBrandRepository _brandRepository;
+    private readonly IMapper _mapper;
 
-    public BrandManager(IBrandRepository brandRepository)
+    public BrandManager(IBrandRepository brandRepository, IMapper mapper)
     {
         _brandRepository = brandRepository;
+        _mapper = mapper;
     }
 
     public async Task<CreateBrandResponse> AddAsync(CreateBrandRequest request)
     {
-        Brand brand = new Brand();
-        brand.Name=request.Name;
+        Brand brand = _mapper.Map<Brand>(request);
         await _brandRepository.Add(brand);
 
-        CreateBrandResponse response = new CreateBrandResponse();
-        response.Name = brand.Name;
-        response.CreatedDate=brand.CreatedDate;
+        CreateBrandResponse response = _mapper.Map<CreateBrandResponse>(brand);
         return response;
     }
 
-    public async Task<List<Brand>> GetAll()
+    public async Task<List<GetAllBrandResponse>> GetAllAsync()
     {
-        return await _brandRepository.GetAll();
+        List<Brand> brands = await _brandRepository.GetAll();
+        List<GetAllBrandResponse> responses = _mapper.Map<List<GetAllBrandResponse>>(brands);
+        return responses;
     }
 }
