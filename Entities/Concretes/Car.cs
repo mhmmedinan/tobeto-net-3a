@@ -28,6 +28,3 @@ public class Car:BaseEntity<int>
         DailyPrice = dailyPrice;
     }
 } 
-
-
-//14.05 dersteyiz

@@ -1,5 +1,6 @@
 using DataAccess;
 using Business;
+using Entities.Concretes;
 
 var builder = WebApplication.CreateBuilder(args);
 

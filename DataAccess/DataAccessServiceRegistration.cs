@@ -17,6 +17,7 @@ public static class DataAccessServiceRegistration
             GetConnectionString("TobetoNet3AConnectionString")));
 
         services.AddScoped<IBrandRepository, BrandRepository>();
+        services.AddScoped<IModelRepository, ModelRepository>();
 
         return services;
     }
