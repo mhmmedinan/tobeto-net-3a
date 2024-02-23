@@ -145,3 +145,4 @@ C:\Tobeto.Net3A\Tobeto-RentACarProject\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNe
 C:\Tobeto.Net3A\Tobeto-RentACarProject\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Tobeto.Net3A\Tobeto-RentACarProject\WebAPI\obj\Debug\net8.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Tobeto.Net3A\Tobeto-RentACarProject\WebAPI\bin\Debug\net8.0\AutoMapper.dll
+C:\Tobeto.Net3A\Tobeto-RentACarProject\WebAPI\bin\Debug\net8.0\WebAPI.staticwebassets.runtime.json

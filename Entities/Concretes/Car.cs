@@ -12,9 +12,11 @@ public class Car:BaseEntity<int>
 
     public Model Model { get; set; }
 
+    public virtual ICollection<CarImage> CarImages { get; set; }
+
     public Car()
     {
-        
+        CarImages = new HashSet<CarImage>();
     }
 
     public Car(int id,int modelId, int modelYear, 
