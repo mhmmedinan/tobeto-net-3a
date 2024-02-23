@@ -2,7 +2,7 @@
 
 namespace Entities.Concretes;
 
-public class Brand:BaseEntity<int>
+public class Brand:BaseEntity<Guid>
 {
     public string Name { get; set; }  //Audi 
 
@@ -14,7 +14,7 @@ public class Brand:BaseEntity<int>
         Models = new HashSet<Model>();
     }
 
-    public Brand(int id, string name):this()
+    public Brand(Guid id, string name):this()
     {
         Id = id;
         Name = name;

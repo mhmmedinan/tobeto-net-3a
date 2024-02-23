@@ -5,7 +5,7 @@ using Entities.Concretes;
 
 namespace DataAccess.Concretes.Repositories;
 
-public class BrandRepository : EfRepositoryBase<Brand, int, BaseDbContext>, IBrandRepository
+public class BrandRepository : EfRepositoryBase<Brand, Guid, BaseDbContext>, IBrandRepository
 {
     public BrandRepository(BaseDbContext context) : base(context)
     {

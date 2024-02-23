@@ -29,10 +29,10 @@ public class CarManager : ICarService
         return response;
     }
 
-    public async Task<IDataResult<List<GetAllCarResponse>>> GetAllAsync()
+    public async Task<List<GetAllCarResponse>> GetAllAsync()
     {
         List<Car> cars = await _carRepository.GetAll(include: x => x.Include(x => x.Model).Include(x=>x.Model.Brand));
         List<GetAllCarResponse> responses = _mapper.Map<List<GetAllCarResponse>>(cars);
-        return new SuccessDataResult<List<GetAllCarResponse>>(responses,"Listed Successfully");
+        return responses;
     }
 }

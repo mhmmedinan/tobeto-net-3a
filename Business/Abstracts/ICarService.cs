@@ -8,6 +8,6 @@ namespace Business.Abstracts;
 public interface ICarService
 {
     Task<CreateCarResponse> AddAsync(CreateCarRequest request);
-    Task<IDataResult<List<GetAllCarResponse>>> GetAllAsync();
+    Task<List<GetAllCarResponse>> GetAllAsync();
      
 }
