@@ -1,5 +1,6 @@
 ﻿using Business.Abstracts;
 using Business.Requests.Brands;
+using Core.Utilities.Results;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -25,6 +26,13 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> GetAll()
         {
             return HandleDataResult(await _brandService.GetAllAsync());
+        }
+
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> Delete([FromRoute]DeleteBrandRequest deleteBrandRequest)
+        {
+            return HandleResult(await _brandService.Delete(deleteBrandRequest));
+            
         }
     }
 }
