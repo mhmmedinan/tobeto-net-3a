@@ -2,6 +2,7 @@
 using Business.Abstracts;
 using Business.Requests.Brands;
 using Business.Responses.Brands;
+using Business.Rules;
 using Core.Exceptions.Types;
 using Core.Utilities.Results;
 using DataAccess.Abstracts;
@@ -13,18 +14,20 @@ public class BrandManager : IBrandService
 {
     private readonly IBrandRepository _brandRepository;
     private readonly IMapper _mapper;
+    private readonly BrandBusinessRules _rules;
 
-    public BrandManager(IBrandRepository brandRepository, IMapper mapper)
+    public BrandManager(IBrandRepository brandRepository, IMapper mapper, BrandBusinessRules rules)
     {
         _brandRepository = brandRepository;
         _mapper = mapper;
+        _rules = rules;
     }
 
-   
+
 
     public async Task<IDataResult<CreateBrandResponse>> AddAsync(CreateBrandRequest request)
     {
-        await CheckIfBrandNameNotExists(request.Name.TrimStart());
+        await _rules.CheckIfBrandNameNotExists(request.Name.TrimStart());
         Brand brand = _mapper.Map<Brand>(request);
         brand.Id = Guid.NewGuid();
         await _brandRepository.Add(brand);
@@ -56,11 +59,9 @@ public class BrandManager : IBrandService
         return responses;
     }
 
-    private async Task CheckIfBrandNameNotExists(string brandName)
+    public async Task<Brand> GetById(Guid id)
     {
-        var isExists = await _brandRepository.Get(brand=>brand.Name == brandName);
-        if (isExists is not null) throw new BusinessException("Brand name already exists");
+        Brand brand = await _brandRepository.Get(x=>x.Id==id);
+        return brand;
     }
-
-    
 }

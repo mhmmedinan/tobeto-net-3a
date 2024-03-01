@@ -2,6 +2,7 @@
 using Business.Abstracts;
 using Business.Requests.Models;
 using Business.Responses.Models;
+using Business.Rules;
 using DataAccess.Abstracts;
 using Entities.Concretes;
 using Microsoft.EntityFrameworkCore;
@@ -12,15 +13,18 @@ public class ModelManager : IModelService
 {
     private readonly IModelRepository _modelRepository;
     private readonly IMapper _mapper;
+    private readonly ModelBusinessRules _rules;
 
-    public ModelManager(IModelRepository modelRepository, IMapper mapper)
+    public ModelManager(IModelRepository modelRepository, IMapper mapper, ModelBusinessRules rules)
     {
         _modelRepository = modelRepository;
         _mapper = mapper;
+        _rules = rules;
     }
 
     public async Task<CreateModelResponse> AddAsync(CreateModelRequest request)
     {
+        await _rules.CheckIfBrandExists(request.BrandId);
         Model model = _mapper.Map<Model>(request);
         await _modelRepository.Add(model);
 

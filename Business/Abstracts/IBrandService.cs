@@ -11,4 +11,5 @@ public interface IBrandService
     Task<IDataResult<List<GetAllBrandResponse>>> GetAllAsync();
     Task<IResult> Delete(DeleteBrandRequest deleteBrandRequest);
     Task<List<GetAllBrandResponse>> GetAllBrandName(string name);
+    Task<Brand> GetById(Guid id);
 }
