@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Business.Abstracts;
+using Business.Constants;
 using Business.Requests.Brands;
 using Business.Responses.Brands;
 using Business.Rules;
@@ -7,6 +8,7 @@ using Core.Exceptions.Types;
 using Core.Utilities.Results;
 using DataAccess.Abstracts;
 using Entities.Concretes;
+using Microsoft.Extensions.Logging;
 
 namespace Business.Concretes;
 
@@ -24,7 +26,7 @@ public class BrandManager : IBrandService
     }
 
 
-
+    
     public async Task<IDataResult<CreateBrandResponse>> AddAsync(CreateBrandRequest request)
     {
         await _rules.CheckIfBrandNameNotExists(request.Name.TrimStart());
@@ -33,7 +35,7 @@ public class BrandManager : IBrandService
         await _brandRepository.Add(brand);
 
         CreateBrandResponse response = _mapper.Map<CreateBrandResponse>(brand);
-        return new SuccessDataResult<CreateBrandResponse>(response, "Added Successfully");
+        return new SuccessDataResult<CreateBrandResponse>(response, BrandMessages.BrandAdded);
 
     }
 

@@ -15,9 +15,13 @@ public static class BusinessServiceRegistration
 
         services.AddSubClassesOfType(Assembly.GetExecutingAssembly(), typeof(BaseBusinessRules));
 
-        services.AddScoped<IBrandService, BrandManager>();
-        services.AddScoped<IModelService, ModelManager>();
-        services.AddScoped<ICarService, CarManager>();
+        //services.AddScoped<IBrandService, BrandManager>();
+        //services.AddScoped<IModelService, ModelManager>();
+        //services.AddScoped<ICarService, CarManager>();
+
+        services.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()).
+            Where(t => t.ServiceType.Name.EndsWith("Manager"));
+        
         return services;
     }
 
@@ -30,6 +34,21 @@ public static class BusinessServiceRegistration
         {
             if (addWithLifeCycle == null) { services.AddScoped(item); }
             else { addWithLifeCycle(services, type); } 
+        }
+        return services;
+    }
+
+    public static IServiceCollection RegisterAssemblyTypes
+        (this IServiceCollection services,Assembly assembly)
+    {
+        var types = assembly.GetTypes().Where(t => t.IsClass && !t.IsAbstract);
+        foreach(Type? type in types)
+        {
+            var interfaces=  type.GetInterfaces();
+            foreach(var @interface in interfaces)
+            {
+                services.AddScoped(@interface, type);
+            }
         }
         return services;
     }
