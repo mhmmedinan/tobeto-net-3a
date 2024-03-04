@@ -22,10 +22,7 @@ public class AutofacBusinessModule:Module
         //       .As<IConfiguration>()
         //       .SingleInstance();
 
-        // MongoDbLogger için kayıt
-        builder.RegisterType<MongoDbLogger>()
-               .As<LoggerServiceBase>()
-               .InstancePerDependency();
+
         var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
         builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()

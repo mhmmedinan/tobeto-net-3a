@@ -1,22 +1,25 @@
 ﻿using Core.CrossCuttingConcerns.Logging.Serilog.ConfigurationModels;
 using Microsoft.Extensions.Configuration;
+using MongoDB.Driver;
 using Serilog;
 
 namespace Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 
 public class MongoDbLogger : LoggerServiceBase
 {
-    private IConfiguration _configuration;
-
+   
     public MongoDbLogger()
     {
-        
-    }
+        //MongoDbConfiguration? dbConfiguration = configuration.GetSection("SerilogConfigurations:MongoDbConfiguration")
+        //    .Get<MongoDbConfiguration>();
 
-    public MongoDbLogger(IConfiguration configuration)
-    {
-        _configuration = configuration;
-        var logConfig = _configuration.GetSection("SerilogConfigurations:MongoDbConfiguration").Get<MongoDbConfiguration>();
-        Logger = new LoggerConfiguration().WriteTo.MongoDB(logConfig.ConnectionString,collectionName:logConfig.Collection).CreateLogger();
+        Logger = new LoggerConfiguration().WriteTo.MongoDBBson(
+            cfg =>
+            {
+                MongoClient client = new("mongodb://localhost:27017");
+                IMongoDatabase? database = client.GetDatabase("logs");
+                cfg.SetMongoDatabase(database);
+            }
+        ).CreateLogger();
     }
 }

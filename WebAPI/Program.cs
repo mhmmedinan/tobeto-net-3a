@@ -30,7 +30,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    app.ConfigureCustomExceptionMiddleware();
+    //app.ConfigureCustomExceptionMiddleware();
 }
 
 
@@ -40,7 +40,6 @@ if (app.Environment.IsProduction())
 }
 
 app.UseAuthorization();
-
 
 app.MapControllers();
 

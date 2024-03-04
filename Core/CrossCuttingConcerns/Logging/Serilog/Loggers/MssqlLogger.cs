@@ -8,20 +8,20 @@ namespace Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 
 public class MssqlLogger : LoggerServiceBase
 {
+    //public MssqlLogger()
+    //{
+        
+    //}
     public MssqlLogger()
     {
-        
-    }
-    public MssqlLogger(IConfiguration configuration)
-    {
-        MssqlConfiguration logConfiguration = configuration.GetSection("SerilogConfigurations:MssqlConfiguration")
-            .Get<MssqlConfiguration>() ?? throw new Exception("");
+        //MssqlConfiguration logConfiguration = configuration.GetSection("SerilogConfigurations:MssqlConfiguration")
+        //    .Get<MssqlConfiguration>() ?? throw new Exception("");
         MSSqlServerSinkOptions sinkOptions = new()
-        { TableName = logConfiguration.TableName, AutoCreateSqlTable = logConfiguration.AutoCreateSqlTable };
+        { TableName = "Logs", AutoCreateSqlTable = true };
 
         ColumnOptions columnOptions = new();
-        Logger serilogConfig = new LoggerConfiguration().WriteTo
-            .MSSqlServer(logConfiguration.ConnectionString,sinkOptions,columnOptions:columnOptions).CreateLogger();
+        global::Serilog.Core.Logger serilogConfig = new LoggerConfiguration().WriteTo
+            .MSSqlServer("Server=(localdb)\\mssqllocaldb;Database=TobetoNet3ADb;Trusted_Connection=true", sinkOptions,columnOptions:columnOptions).CreateLogger();
         Logger = serilogConfig;
 
 
