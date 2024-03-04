@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using MongoDB.Bson;
+using Serilog;
 
 namespace Core.CrossCuttingConcerns.Logging.Serilog;
 
