@@ -1,12 +1,6 @@
-﻿using Business.Abstracts;
-using Business.Concretes;
-using Business.Rules;
-using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
-using Core.CrossCuttingConcerns.Logging.Serilog;
-using Core.CrossCuttingConcerns.Rules;
+﻿using Core.CrossCuttingConcerns.Rules;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
-using Microsoft.AspNetCore.Http;
 
 namespace Business;
 

@@ -10,9 +10,12 @@ using Core.Exceptions.Types;
 using Core.Utilities.Results;
 using DataAccess.Abstracts;
 using Entities.Concretes;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.ComponentModel.DataAnnotations;
 
 namespace Business.Concretes;
+
 
 public class BrandManager : IBrandService
 {
@@ -28,7 +31,7 @@ public class BrandManager : IBrandService
     }
 
 
-    [LogAspect(typeof(MssqlLogger))]
+    [LogAspect(typeof(MssqlLogger),Priority =3)]
     public async Task<IDataResult<CreateBrandResponse>> AddAsync(CreateBrandRequest request)
     {
         await _rules.CheckIfBrandNameNotExists(request.Name.TrimStart());
@@ -49,7 +52,7 @@ public class BrandManager : IBrandService
 
     }
 
-    [LogAspect(typeof(MssqlLogger))]
+    [LogAspect(typeof(MongoDbLogger))]
     public async Task<IDataResult<List<GetAllBrandResponse>>> GetAllAsync()
     {
         List<Brand> brands = await _brandRepository.GetAll();
