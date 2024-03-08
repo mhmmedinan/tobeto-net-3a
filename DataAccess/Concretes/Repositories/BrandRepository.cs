@@ -11,3 +11,4 @@ public class BrandRepository : EfRepositoryBase<Brand, Guid, BaseDbContext>, IBr
     {
     }
 }
+

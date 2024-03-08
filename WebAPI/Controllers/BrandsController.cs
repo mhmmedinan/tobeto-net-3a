@@ -2,6 +2,7 @@
 using Business.Requests.Brands;
 using Business.Responses.Brands;
 using Core.Utilities.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -24,6 +25,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles ="brand.list")]
         public async Task<IActionResult> GetAll()
         {
             return HandleDataResult(await _brandService.GetAllAsync());
